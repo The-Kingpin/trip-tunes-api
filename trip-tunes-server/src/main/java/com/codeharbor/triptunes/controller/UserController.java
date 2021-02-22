@@ -1,4 +1,4 @@
-package com.codeharbor.triptunes.controllers;
+package com.codeharbor.triptunes.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

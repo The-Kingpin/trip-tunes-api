@@ -1,12 +1,17 @@
 import React from "react";
-import "./App.scss"
+import './index.css';
+import MainPage from "./components/MainPage/MainPage";
+import styled from "styled-components";
 
+const AppContainer = styled.div`
+   font-family: Segoe UI;
+`
 function App() {
-  return (
-    <div>
-      This is react App
-    </div>
-  );
+    return (
+        <AppContainer>
+            <MainPage />
+        </AppContainer>
+    );
 }
 
 export default App;

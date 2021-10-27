@@ -1,0 +1,45 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/trip_tunes
+  jpa:
+    #    hibernate:
+    #      ddl-auto: update
+    generate-ddl: true
+  jooq:
+    sql-dialect: org.hibernate.dialect.postgresql
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: username@gmail.com
+    password: password
+    protocol: smtp
+    #    tls: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # EXAMPLE Keycloak issuer-uri: http://localhost:8180/auth/realms/one
+          # Example OKta
+          issuer-uri: http://localhost:8180/auth/realms/myrealm
+
+
+keycloak:
+  auth-server-url: http://localhost:9999/auth
+  realm: one
+  resource: trip_tunes
+#  public-client: true
+#  ssl-required: external
+  credentials:
+    secret: ce7ae49e-6f5c-4b18-8c10-7958939fbb8f
+#  use-resource-role-mappings: true
+#  bearer-only: true

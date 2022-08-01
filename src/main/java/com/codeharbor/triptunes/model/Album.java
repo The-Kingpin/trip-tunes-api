@@ -1,10 +1,21 @@
 package com.codeharbor.triptunes.model;
 
-public class Album {
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String trackListUrl;
+
+    @ManyToOne
+    private Artist artist;
+
+    @ManyToMany
+    private List<TagGenres> genres;
 
     public Album() {
     }
@@ -31,5 +42,13 @@ public class Album {
 
     public void setTrackListUrl(String trackListUrl) {
         this.trackListUrl = trackListUrl;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 }

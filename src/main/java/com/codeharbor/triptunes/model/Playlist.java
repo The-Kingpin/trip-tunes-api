@@ -7,7 +7,7 @@ public class Playlist {
     private String title;
     private Set<TagGenres> tagGenres;
     private Set<Track> tracks;
-    private int totalPlaytime;
+    private long totalPlaytime;
     private byte rank;
 
     public Playlist() {
@@ -46,11 +46,11 @@ public class Playlist {
         this.tracks = tracks;
     }
 
-    public int getTotalPlaytime() {
+    public long getTotalPlaytime() {
         return totalPlaytime;
     }
 
-    public void setTotalPlaytime(int totalPlaytime) {
+    public void setTotalPlaytime(long totalPlaytime) {
         this.totalPlaytime = totalPlaytime;
     }
 

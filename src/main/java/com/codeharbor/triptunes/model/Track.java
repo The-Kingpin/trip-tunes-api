@@ -1,13 +1,22 @@
 package com.codeharbor.triptunes.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Track {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String link;
-    private double duration;
+    private int duration;
     private byte rank;
     private String previewUrl;
+
+    @ManyToOne
     private Artist artist;
+
+    @ManyToOne()
     private Album album;
 
     public Track() {
@@ -37,11 +46,11 @@ public class Track {
         this.link = link;
     }
 
-    public double getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

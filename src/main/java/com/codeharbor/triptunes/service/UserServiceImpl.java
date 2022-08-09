@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
-
 @Service
 public class UserServiceImpl implements UserService {
     private static final String USER_NOT_FOUND_EXCEPTION_MESSAGE = "User doesn't exist.";

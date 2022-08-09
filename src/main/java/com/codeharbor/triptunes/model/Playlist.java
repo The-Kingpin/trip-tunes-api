@@ -1,14 +1,26 @@
 package com.codeharbor.triptunes.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
+@Entity
+@Table
 public class Playlist {
+    @Id
     private long id;
     private String title;
-    private Set<TagGenres> tagGenres;
-    private Set<Track> tracks;
     private long totalPlaytime;
     private byte rank;
+
+    @ManyToMany
+    private Set<TagGenre> tagGenres;
+    @ManyToMany
+    private Set<Track> tracks;
+    @ManyToMany
+    private Set<User> users;
 
     public Playlist() {
 
@@ -30,11 +42,11 @@ public class Playlist {
         this.title = title;
     }
 
-    public Set<TagGenres> getTagGenres() {
+    public Set<TagGenre> getTagGenres() {
         return tagGenres;
     }
 
-    public void setTagGenres(Set<TagGenres> tagGenres) {
+    public void setTagGenres(Set<TagGenre> tagGenres) {
         this.tagGenres = tagGenres;
     }
 
@@ -60,5 +72,13 @@ public class Playlist {
 
     public void setRank(byte rank) {
         this.rank = rank;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

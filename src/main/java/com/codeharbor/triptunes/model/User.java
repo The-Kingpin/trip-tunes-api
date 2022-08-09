@@ -2,6 +2,7 @@ package com.codeharbor.triptunes.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.List;
 
 @Entity(name = "users")
 public class User {
@@ -15,6 +16,8 @@ public class User {
 
     @Email
     private String email;
+    @ManyToMany
+    private List<Playlist> playlists;
 
 
     public User() {
@@ -47,5 +50,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
+    public void setPlaylists(List<Playlist> playlists) {
+        this.playlists = playlists;
     }
 }

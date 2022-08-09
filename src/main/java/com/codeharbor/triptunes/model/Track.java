@@ -2,7 +2,10 @@ package com.codeharbor.triptunes.model;
 
 import javax.persistence.*;
 
+import java.util.Objects;
+
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"title", "album_id", "artist_id"})})
 public class Track {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,13 +13,13 @@ public class Track {
     private String title;
     private String link;
     private int duration;
-    private byte rank;
+    private int rank;
     private String previewUrl;
 
     @ManyToOne
     private Artist artist;
 
-    @ManyToOne()
+    @ManyToOne
     private Album album;
 
     public Track() {
@@ -54,11 +57,11 @@ public class Track {
         this.duration = duration;
     }
 
-    public byte getRank() {
+    public int getRank() {
         return rank;
     }
 
-    public void setRank(byte rank) {
+    public void setRank(int rank) {
         this.rank = rank;
     }
 
@@ -84,5 +87,31 @@ public class Track {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Track track = (Track) o;
+        return title.equals(track.title) && artist.equals(track.artist) && album.equals(track.album);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, artist, album);
+    }
+
+    @Override
+    public String toString() {
+        return "Track{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", link='" + link + '\'' +
+                ", duration=" + duration +
+                ", rank=" + rank +
+                ", artist=" + artist +
+                ", album=" + album +
+                '}';
     }
 }

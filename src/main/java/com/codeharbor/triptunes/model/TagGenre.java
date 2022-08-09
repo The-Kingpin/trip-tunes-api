@@ -3,12 +3,18 @@ package com.codeharbor.triptunes.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import java.io.Serializable;
+
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
-public class TagGenres implements Serializable {
+@Table
+public class TagGenre implements Serializable {
 
     @Id
     private long id;
@@ -19,10 +25,10 @@ public class TagGenres implements Serializable {
     private String pictureBig;
     private String pictureXl;
 
-    @ManyToMany
-    private transient List<Album> album;
+    @ManyToMany(mappedBy = "genre")
+    private Set<Album> album;
 
-    public TagGenres() {
+    public TagGenre() {
 
     }
 
@@ -82,11 +88,32 @@ public class TagGenres implements Serializable {
         this.pictureXl = pictureXl;
     }
 
-    public List<Album> getAlbum() {
-        return Collections.unmodifiableList(album);
+    public Set<Album> getAlbum() {
+        return album;
     }
 
-    public void setAlbum(List<Album> album) {
+    public void setAlbum(Set<Album> album) {
         this.album = album;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TagGenre tagGenres = (TagGenre) o;
+        return name.equals(tagGenres.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "TagGenres{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

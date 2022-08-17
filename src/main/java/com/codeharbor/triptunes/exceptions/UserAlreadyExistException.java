@@ -13,10 +13,6 @@ public class UserAlreadyExistException extends RuntimeException {
         super(message, cause);
     }
 
-
-
-
-
     public UserAlreadyExistException(Throwable cause) {
         super(cause);
     }

@@ -25,7 +25,13 @@ public class ArtistDTO {
     public ArtistDTO() {
     }
 
-    public ArtistDTO(int id, String name, String picture, String pictureSmall, String pictureMedium, String pictureBig, String pictureXl) {
+    public ArtistDTO(int id,
+                     String name,
+                     String picture,
+                     String pictureSmall,
+                     String pictureMedium,
+                     String pictureBig,
+                     String pictureXl) {
         this.deezerId = id;
         this.name = name;
         this.picture = picture;

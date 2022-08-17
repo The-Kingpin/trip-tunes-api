@@ -25,7 +25,13 @@ public class AlbumDTO {
     public AlbumDTO() {
     }
 
-    public AlbumDTO(int id, String title, int genreId, Map<String, List<GenreDTO>> genres, int nbTracks, ArtistDTO artist, Map<String, List<TrackDTO>> tracks) {
+    public AlbumDTO(int id,
+                    String title,
+                    int genreId,
+                    Map<String, List<GenreDTO>> genres,
+                    int nbTracks,
+                    ArtistDTO artist,
+                    Map<String, List<TrackDTO>> tracks) {
         this.deezerId = id;
         this.title = title;
         this.genreId = genreId;

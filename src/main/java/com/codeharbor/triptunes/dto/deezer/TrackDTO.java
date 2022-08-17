@@ -19,7 +19,12 @@ public class TrackDTO {
     public TrackDTO() {
     }
 
-    public TrackDTO(long id, String title, String link, int duration, int rank, String previewUrl) {
+    public TrackDTO(long id,
+                    String title,
+                    String link,
+                    int duration,
+                    int rank,
+                    String previewUrl) {
         this.deezerId = id;
         this.title = title;
         this.link = link;

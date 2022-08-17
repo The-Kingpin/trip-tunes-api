@@ -17,7 +17,10 @@ public class GenreDTO {
     public GenreDTO() {
     }
 
-    public GenreDTO(int id, String name, String picture, String type) {
+    public GenreDTO(int id,
+                    String name,
+                    String picture,
+                    String type) {
         this.deezerId = id;
         this.name = name;
         this.picture = picture;

@@ -1,5 +1,7 @@
 server:
   port: 8080
+  error:
+    path:
 spring:
   datasource:
     username: postgres
@@ -61,3 +63,4 @@ spring:
 #    secret: ce7ae49e-6f5c-4b18-8c10-7958939fbb8f
 ##  use-resource-role-mappings: true
 ##  bearer-only: true
+
